@@ -1,3 +1,8 @@
 FROM nginx:latest
 
-COPY ./index.html /usr/share/nginx/html/index.html
+RUN mkdir /etc/nginx/sites-available/
+COPY test.com /etc/nginx/sites-available/
+
+RUN mkdir /etc/nginx/sites-enabled/
+RUN ln -s /etc/nginx/sites-available/test.com
+
